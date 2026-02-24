@@ -33,7 +33,11 @@ class SentenceTransformersEngine(BaseEmbeddingEngine):
         self.batch_size = batch_size or (CONFIG.embedding.batch_size if CONFIG else 32)
         
         logger.info(f"Loading SentenceTransformers model: {self.model_name} on {self.device}")
-        self._model = SentenceTransformer(self.model_name, device=self.device)
+        self._model = SentenceTransformer(
+            self.model_name, 
+            device=self.device, 
+            model_kwargs={"low_cpu_mem_usage": False}
+        )
         self._embedding_dim = self._model.get_sentence_embedding_dimension()
         logger.info(f"Model loaded. Embedding dimension: {self._embedding_dim}")
 

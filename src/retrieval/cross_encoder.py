@@ -17,7 +17,11 @@ class CrossEncoderReranker:
         self.model_name = model_name
         
         logger.info(f"Loading CrossEncoder: {self.model_name} on {self.device}")
-        self._model = CrossEncoder(self.model_name, device=self.device)
+        self._model = CrossEncoder(
+            self.model_name, 
+            device=self.device, 
+            model_kwargs={"low_cpu_mem_usage": False}
+        )
         logger.info("CrossEncoder loaded successfully.")
 
     async def rerank(self, query: str, documents: List[Dict[str, Any]], top_k: int = None) -> List[Dict[str, Any]]:
