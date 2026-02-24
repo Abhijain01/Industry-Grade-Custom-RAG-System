@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
+env.bak/
+venv.bak/
+
+# Logs
+logs/
+*.log
+
+# Temp files
+tmp/
+temp/
+
+# RAG specific
+data/faiss_index.bin
+data/metadata.json
+data/bm25_store.pkl
+data/*.bin
+data/*.pkl
+data/*.json
+
+# pytest
+.pytest_cache/
+
+# Streamlit
+# .streamlit/config.toml is usually safe to commit unless it has secrets
