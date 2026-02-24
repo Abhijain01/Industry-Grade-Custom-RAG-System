@@ -20,7 +20,7 @@ class CrossEncoderReranker:
         self._model = CrossEncoder(
             self.model_name, 
             device=self.device, 
-            model_kwargs={"low_cpu_mem_usage": False}
+            automodel_args={"low_cpu_mem_usage": False}
         )
         logger.info("CrossEncoder loaded successfully.")
 
